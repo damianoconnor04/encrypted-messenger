@@ -1,11 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed&family=Poppins&family=Rubik&display=swap');
 
 * { box-sizing: border-box }
 html, body { height: 100% }
 canvas { width: 100%; height: 100% }
-body { background-color: #1a1a1a; font-family: 'Rubik', sans-serif }
-.poppins { font-family: 'Poppins', sans-serif }
+body { background-color: var(--bg); font-family: 'Rubik', sans-serif }
+
+:root {
+  --bg: #fff;
+  --text: #000;
+  --bg-accent: #c0c0c086;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000;
+    --text: #fff;
+    --bg-accent: #2f2f2f86;
+  }
+}
+.t-bg { background-color: var(--bg) }
+.t-text { color: var(--text) }
+.t-bg-accent { background-color: var(--bg-accent) }
+
+
+  
+
+@keyframes marquee {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes marquee2 {
+  0% { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+.marquee { animation: marquee 20s linear infinite; }
+.marquee2 { animation: marquee2 20s linear 10s infinite; }
+.marquee-div:hover .marquee, .marquee-div:hover .marquee2 { animation-play-state: paused; }

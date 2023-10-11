@@ -7,7 +7,22 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        marquee2: {
+          '0%': { transform: 'translateX(-200%)' },
+          '100%': { transform: 'translateX(0%)' },
+        }
+      },
+      animation: {
+        marquee: 'marquee 20s linear infinite',
+        marquee2: 'marquee2 20s linear 10s infinite'
+      },
+    },
   },
   plugins: [],
 }

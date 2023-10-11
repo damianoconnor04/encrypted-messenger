@@ -1,11 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import BgPattern from '@/app/components/BgPattern'
 import GlobalSessionWrapper from '@/app/components/GlobalSessionWrapper'
 
-const inter = Inter({ subsets: ['latin'] })
+const rubik = Rubik({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Chat App',
@@ -15,9 +15,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={rubik.className}>
         <Toaster />
-        <BgPattern />
         <GlobalSessionWrapper>{children}</GlobalSessionWrapper>
       </body>
     </html>
