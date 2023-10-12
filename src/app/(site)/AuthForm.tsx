@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useState, useRef } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
@@ -35,9 +35,6 @@ const AuthForm = () => {
     setIsLoading(true)
   }
 
-  const divRef = useRef<HTMLDivElement>(null)
-  const mainDivRef = useRef<HTMLDivElement>(null)
-  useEffect(() => { if (divRef.current && mainDivRef.current) mainDivRef.current.style.width = `${divRef.current.offsetWidth}px` }, [])
   return (
     <div className='h-[calc(100%_-_2.5rem)] md:flex md:items-center w-full overflow-hidden'>
       <div className='md:h-full px-4 sm:px-12 md:pr-0 md:pb-6 pt-6 flex md:flex-col justify-between flex-1 t-text text-4xl md:text-8xl w-full'>

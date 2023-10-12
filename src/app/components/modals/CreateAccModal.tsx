@@ -28,7 +28,7 @@ const CreateAccModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: () => 
           </div>
         </div>
         <div className='md:mt-8'>
-        <Button variant='primary' onClick={() => {}}>Sign up</Button>
+          <Button variant='primary' onClick={() => {}}>Sign up</Button>
         </div>
       </form>
     </Modal>
