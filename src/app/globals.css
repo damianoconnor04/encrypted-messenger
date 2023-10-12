@@ -13,6 +13,7 @@ body { background-color: var(--bg); font-family: 'Rubik', sans-serif }
 :root {
   --white-bg: #ffffff33;
   --bg: #fff;
+  --alt-bg: #000;
   --text: #000;
   --text-light: #777777;
   --bg-accent: #c0c0c086;
@@ -25,6 +26,7 @@ body { background-color: var(--bg); font-family: 'Rubik', sans-serif }
   :root {
     --white-bg: #ffffff33;
     --bg: #000;
+    --alt-bg: #fff;
     --text: #fff;
     --text-light: #999999;
     --bg-accent: #38383886;
@@ -37,6 +39,7 @@ body { background-color: var(--bg); font-family: 'Rubik', sans-serif }
 .white-bg { background-color: var(--white-bg) }
 /* light/dark mode toggle classes */
 .t-bg { background-color: var(--bg) }
+.t-alt-bg { background-color: var(--alt-bg) }
 .t-text { color: var(--text) }
 .t-text-light { color: var(--text-light) }
 .t-bg-accent { background-color: var(--bg-accent) }
