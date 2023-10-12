@@ -38,14 +38,14 @@ const AuthForm = () => {
   const mainDivRef = useRef<HTMLDivElement>(null)
   useEffect(() => { if (divRef.current && mainDivRef.current) mainDivRef.current.style.width = `${divRef.current.offsetWidth}px` }, [])
   return (
-    <div className='h-full md:flex md:items-center w-full overflow-hidden'>
-      <div className='md:h-full px-4 sm:px-12 md:pr-0 md:pb-12 pt-12 flex md:flex-col justify-between flex-1 t-text text-4xl md:text-8xl w-full'>
+    <div className='h-[calc(100%_-_2.5rem)] md:flex md:items-center w-full overflow-hidden'>
+      <div className='md:h-full px-4 sm:px-12 md:pr-0 md:pb-6 pt-6 flex md:flex-col justify-between flex-1 t-text text-4xl md:text-8xl w-full'>
         <SiDatadog />
-        <span className={`${modak.className}`}>lorem ipsum</span>
+        <span className={`${modak.className}`}>datadog</span>
       </div>
 
-      <div className='md:pr-12 md:py-12 md:h-full flex flex-col justify-end md:justify-center items-center md:items-end flex-1'>
-        <div className='px-4 sm:px-12 pt-12 md:p-0 md:max-w-sm w-full'>
+      <div className='md:pr-12 md:py-6 md:h-full flex flex-col justify-end md:justify-center items-center md:items-end flex-1'>
+        <div className='px-4 sm:px-12 pt-6 md:p-0 md:max-w-sm w-full'>
           <h3 className={`text-[1.5rem] t-text font-bold mb-5`}>Join today</h3>
 
           <div className='flex flex-col gap-y-2'>
@@ -63,7 +63,7 @@ const AuthForm = () => {
           <p className='text-xs text-gray-500 leading-tight'>By signing up, you agree to the <a href='' className='text-sky-400'>Terms of Service</a> and <a href='' className='text-sky-400'>Privacy Policy</a>, including <a href='' className='text-sky-400'>Cookie Use</a>.</p>
         </div>
 
-        <div className='md:mt-10 mt-5 px-4 sm:px-12 md:px-0 md:max-w-sm w-full'>
+        <div className='md:mt-10 mt-4 px-4 sm:px-12 md:px-0 md:max-w-sm w-full'>
           <h3 className={`text-[1.25rem] t-text font-bold mb-5`}>Already have an account?</h3>
           <button className='bg-inherit px-4 text-sky-500 font-medium rounded-full border border-slate-400 w-full h-[38px] hover:bg-sky-500/[0.15] transition-colors duration-200' onClick={() => setShowSignInModal(true)}>Sign in</button>
         </div>
