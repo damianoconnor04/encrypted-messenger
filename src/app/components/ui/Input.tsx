@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({ label, id, type, required, register, erro
           ${errors[id] && 'focus-visible:ring-rose-500'} 
           ${disabled && 'opacity-50 cursor-default'}
           ${inputValue && isValid && '!ring-green-400'}
-          ${inputValue && !isValid && '!ring-rose-400'}
+          ${inputValue && !isValid && '!ring-rose-400 animate-shake'}
         `}/>
         {inputValue && isValid && type !== "password" && <div className='absolute text-green-400 top-1/2 -translate-y-1/2 right-2.5 text-lg'><IoIosCheckmarkCircle /></div>}
         {inputValue && isValid && type === "password" && <div className='absolute text-green-400 top-1/2 -translate-y-1/2 right-2.5 text-lg'><IoShieldCheckmarkSharp /></div>}

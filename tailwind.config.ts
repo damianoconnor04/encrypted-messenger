@@ -20,12 +20,20 @@ const config: Config = {
         overlay: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        shake: {
+          '0%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-10px)' },
+          '50%': { transform: 'translateX(0)' },
+          '75%': { transform: 'translateX(10px)' },
+          '100%': { transform: 'translateX(0)' },
         }
       },
       animation: {
         marquee: 'marquee 20s linear infinite',
         grow: 'grow 150ms linear',
         overlay: 'overlay 250ms linear',
+        shake: 'shake 100ms linear'
       },
     },
   },
