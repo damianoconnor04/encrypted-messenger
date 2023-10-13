@@ -4,9 +4,8 @@ import MessagePanel from "./_components/MessagePanel"
 const MessagesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Navigation>
-      <MessagePanel>
-        {children}
-      </MessagePanel>
+      <MessagePanel />
+      {children}
     </Navigation>
   )
 }

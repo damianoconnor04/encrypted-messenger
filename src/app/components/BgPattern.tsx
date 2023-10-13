@@ -53,12 +53,12 @@ const BgPattern: React.FC = () => {
 
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particleSize, 0, 2 * Math.PI)
-        ctx.fillStyle = '#00e699'
+        ctx.fillStyle = '#000'
         ctx.fill()
       });
 
       const connectionDistance = window.innerWidth < 768 ? 75 : 190 // responsive: less connections
-      ctx.strokeStyle = '#00e699'
+      ctx.strokeStyle = '#000'
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
@@ -85,7 +85,7 @@ const BgPattern: React.FC = () => {
     return () => { window.removeEventListener('resize', handleResize) }
   }, [particles]);
 
-  return <canvas className='absolute -z-10 left-0 top-0' ref={canvasRef} />;
+  return <canvas className='absolute -z-50 left-0 top-0' ref={canvasRef} />;
 };
 
 export default BgPattern;

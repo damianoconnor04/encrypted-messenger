@@ -8,12 +8,12 @@ const Modal = ({ isOpen, onClose, children, title, maxW }: { isOpen?: boolean; o
   return (
     <>
       {isOpen && (
-        <div className='fixed z-50 inset-0'>
+        <div className='fixed inset-0'>
           <main className='flex items-center justify-center min-h-screen p-12 md:p-0'>
             <div className='t-bg-overlay animate-overlay absolute inset-0' onClick={handleClose} />
-            <div className={`absolute inset-0 md:relative z-[9999] t-bg animate-grow md:rounded-2xl ${maxW === "2xl" && 'md:max-w-2xl'} ${maxW === "md" && 'md:max-w-md'} w-full t-text`}>
-              <div className='flex items-center justify-between md:rounded-t-2xl p-2 md:border-b md:border-slate-600 t-bg'>
-                <h3 className='cursor-default font-bold text-2xl md:text-xl p-2'>{title}</h3>
+            <div className={`absolute inset-0 md:relative z-[9999] t-bg animate-grow md:rounded-2xl ${maxW === 'xs' ? 'md:max-w-xs' : maxW === 'sm' ? 'md:max-w-sm' : maxW === 'md' ? 'md:max-w-md' : maxW === 'lg' ? 'md:max-w-lg' : maxW === 'xl' ? 'md:max-w-xl' : maxW === '2xl' ? 'max-w-2xl' : 'max-w-full'} w-full t-text`}>
+              <div className='flex items-center justify-between md:rounded-t-2xl p-2 md:border-b t-border t-bg'>
+                <h3 className='tracking-tighter cursor-default font-bold text-2xl md:text-xl p-2'>{title}</h3>
                 <CustomToolTip id='modal-close' content='Close' delay={1000}>
                   <button onClick={handleClose} className='p-1 md:p-2 text-2xl hover:bg-white/[0.09] transition-colors duration-200 rounded-full text-rose-400'><IoClose /></button>
                 </CustomToolTip>

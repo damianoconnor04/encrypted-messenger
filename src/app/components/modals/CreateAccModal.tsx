@@ -19,7 +19,7 @@ const CreateAccModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: () => 
           <Input id='username' placeholder='Username' errors={errors} register={register} />
           <div className='flex items-center gap-4 relative'>
             {checksCompleted > 0 && (
-              <div className='absolute w-[calc(50%_-_0.5rem)] -bottom-4 h-1.5 rounded-full border border-slate-400 bg-black'>
+              <div className='absolute w-[calc(50%_-_0.5rem)] -bottom-4 h-1.5 rounded-full border t-border bg-black'>
                 <div style={{ width: pwdProgress }} className={`absolute -bottom-[1px] h-1.5 rounded-full bg-green-400`} />
               </div>
             )}

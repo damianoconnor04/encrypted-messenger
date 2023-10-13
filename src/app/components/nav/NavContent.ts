@@ -14,15 +14,15 @@ export const NavContent = [
     slug: "/messages"
   },
   {
-    icon: IoNotificationsOutline,
-    filledIcon: IoNotificationsSharp,
-    label: "Notifications",
-    slug: "/notifications"
-  },
-  {
     icon: IoSearchOutline,
     filledIcon: IoSearchSharp,
     label: "Search",
     slug: "/search"
+  },
+  {
+    icon: IoNotificationsOutline,
+    filledIcon: IoNotificationsSharp,
+    label: "Notifications",
+    slug: "/notifications"
   },
 ]

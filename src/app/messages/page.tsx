@@ -1,9 +1,11 @@
 import React from 'react'
+import Resizable from '../components/resize/Resizable'
+import EmptyState from '../components/EmptyState'
 
-const page = () => {
+const Messages = () => {
   return (
-    <div>page</div>
+    <EmptyState />
   )
 }
 
-export default page
+export default Messages
