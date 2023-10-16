@@ -1,8 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useState } from 'react'
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
-import { signIn, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple } from 'react-icons/fa'
 import { SiDatadog } from 'react-icons/si'
@@ -11,40 +8,21 @@ import SignInModal from '../components/modals/SignInModal'
 import CreateAccModal from '../components/modals/CreateAccModal'
 import Button from '../components/ui/Button'
 
-type Variant = 'LOGIN' | 'REGISTER'
-
 const AuthForm = () => {
-  const session = useSession()
-  const router = useRouter()
-  const [variant, setVariant] = useState<Variant>('LOGIN')
   const [isLoading, setIsLoading] = useState(false)
   const [showSignInModal, setShowSignInModal] = useState(false)
   const [showCreateModal, setShowCreateModal] = useState(false)
 
-  useEffect(() => {
-    if (session?.status === 'authenticated') { router.push('/chat') }
-  }, [session?.status, router])
-
-  const toggleVariant = useCallback(() => {
-    if (variant === 'LOGIN') { setVariant('REGISTER') }
-    else { setVariant('LOGIN') }
-  }, [variant])
-
-  const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>({ defaultValues: { name: '', email: '', password: '' } })
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    setIsLoading(true)
-  }
-
   return (
     <div className='h-[calc(100%_-_2.5rem)] md:flex md:items-center w-full overflow-hidden'>
-      <div className='md:h-full px-4 sm:px-12 md:pr-0 md:pb-6 pt-6 flex md:flex-col justify-between flex-1 t-text text-4xl md:text-8xl w-full'>
+      <div className='md:h-full px-4 sm:px-12 md:pr-0 md:pb-6 pt-6 flex md:flex-col justify-between flex-1 dark:text-white text-black text-4xl md:text-8xl w-full'>
         <SiDatadog />
         <span className={`${modak.className}`}>datadog</span>
       </div>
 
       <div className='md:pr-12 md:py-6 md:h-full flex flex-col justify-end md:justify-center items-center md:items-end flex-1'>
         <div className='px-4 sm:px-12 pt-6 md:p-0 md:max-w-sm w-full'>
-          <h3 className={`text-[1.5rem] t-text font-bold mb-5`}>Join today</h3>
+          <h3 className={`text-[1.5rem] dark:text-white text-black font-bold mb-5`}>Join today</h3>
 
           <div className='flex flex-col gap-y-2'>
             <Button variant='sso'><span className='text-lg'><FcGoogle /></span>Sign up with Google</Button>
@@ -53,7 +31,7 @@ const AuthForm = () => {
 
           <div className='flex items-center justify-center w-full gap-x-2 my-2'>
             <div className='h-[1px] bg-slate-400 w-1/2' />
-            <p className='t-text uppercase'>or</p>
+            <p className='dark:text-white text-black uppercase'>or</p>
             <div className='h-[1px] bg-slate-400 w-1/2' />
           </div>
 
@@ -62,7 +40,7 @@ const AuthForm = () => {
         </div>
 
         <div className='md:mt-10 mt-4 px-4 sm:px-12 md:px-0 md:max-w-sm w-full'>
-          <h3 className={`text-[1.25rem] t-text font-bold mb-5`}>Already have an account?</h3>
+          <h3 className={`text-[1.25rem] dark:text-white text-black font-bold mb-5`}>Already have an account?</h3>
           <Button variant='secondary' onClick={() => setShowSignInModal(true)}>Sign in</Button>
         </div>
       </div>
