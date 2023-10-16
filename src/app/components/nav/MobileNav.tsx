@@ -12,13 +12,13 @@ const MobileNav = () => {
   const [showProfileModal, setShowProfileModal] = useState(false)
 
   return (
-    <aside className='z-[999] fixed bottom-0 t-bg w-full border-t t-border'>
-      <ul className='t-text flex justify-evenly items-center'>
+    <aside className='z-[999] fixed bottom-0 dark:bg-black bg-white w-full border-t dark:border-d-border border-l-border'>
+      <ul className='dark:text-white text-black flex justify-evenly items-center'>
         {NavContent.map((item, idx) => {
           const isActive = pathname === item.slug
           const Icon = isActive ? item.filledIcon : item.icon
           return (
-            <Link href={`${item.slug}`} key={idx} className='w-full t-bg-hover2 transition-colors flex justify-center items-center'>
+            <Link href={`${item.slug}`} key={idx} className='w-full dark:hover:bg-d-hoverbg2 hover:bg-l-hoverbg2 transition-colors flex justify-center items-center'>
               <CustomToolTip id={JSON.stringify(idx)} content={item.label} place='right'>
                 <li className='text-2xl p-2.5 rounded-full'>
                   <Icon />
@@ -27,7 +27,7 @@ const MobileNav = () => {
             </Link>
           )
         })}
-        <li onClick={() => setShowProfileModal(true)} className='cursor-pointer w-full t-bg-hover2 transition-colors flex justify-center items-center py-2.5'>
+        <li onClick={() => setShowProfileModal(true)} className='cursor-pointer w-full dark:hover:bg-d-hoverbg2 hover:bg-l-hoverbg2 transition-colors flex justify-center items-center py-2.5'>
           <UserImg letter='D' size='sm' />
         </li>
       </ul>

@@ -12,14 +12,14 @@ const CreateAccModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: () => 
   const pwdProgress = (25 * checksCompleted) + "%"
   return (
     <Modal isOpen={isOpen} onClose={onClose} title='Create your account' maxW="2xl">
-      {/* <h3 className='text-3xl t-text font-bold px-6 md:hidden'>Create your account</h3> */}
+      {/* <h3 className='text-3xl dark:text-white text-black font-bold px-6 md:hidden'>Create your account</h3> */}
       <form className='p-6 flex flex-col justify-between md:justify-normal h-full'>
         <div className='space-y-3'>
           <Input id='email' placeholder='Email' errors={errors} register={register} />
           <Input id='username' placeholder='Username' errors={errors} register={register} />
           <div className='flex items-center gap-4 relative'>
             {checksCompleted > 0 && (
-              <div className='absolute w-[calc(50%_-_0.5rem)] -bottom-4 h-1.5 rounded-full border t-border bg-black'>
+              <div className='absolute w-[calc(50%_-_0.5rem)] -bottom-4 h-1.5 rounded-full border dark:border-d-border border-l-border bg-black'>
                 <div style={{ width: pwdProgress }} className={`absolute -bottom-[1px] h-1.5 rounded-full bg-green-400`} />
               </div>
             )}
@@ -28,7 +28,7 @@ const CreateAccModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: () => 
           </div>
         </div>
         <div className='md:mt-8'>
-          <Button variant='primary' onClick={() => {}}>Sign up</Button>
+          <Button type='submit' variant='primary' onClick={() => {}}>Sign up</Button>
         </div>
       </form>
     </Modal>

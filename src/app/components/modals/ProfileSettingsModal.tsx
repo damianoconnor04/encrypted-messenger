@@ -25,10 +25,10 @@ const ProfileSettingsModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: 
           </div>
           <Link href="#" className='text-sm text-sky-500 my-0.5'>@official_lee5</Link>
           <div className='space-y-1.5 mt-2 mb-1 w-full'>
-            <Button icon variant='secondary'><IoSettingsOutline />Settings</Button>
-            <Button icon variant='secondary'><AiOutlineUserAdd />Add account</Button>
+            <Button icon variant='secondary' type='button'><IoSettingsOutline />Settings</Button>
+            <Button icon variant='secondary' type='button'><AiOutlineUserAdd />Add account</Button>
             {isInputChanged && <Button variant='primary' type='submit'>Save</Button>}
-            <Button icon danger><TbLogout />Log out</Button>
+            <Button icon danger type='button'><TbLogout />Log out</Button>
           </div>
         </form>
       </div>

@@ -33,9 +33,9 @@ const InputS: React.FC<InputProps> = ({ username, id, type, required, register, 
         ${errors[id] && 'focus-visible:!border-rose-500'}
         ${disabled && 'opacity-50 cursor-default'}
         ${inputValue && isValid && inputValue !== username && '!border-green-400'}
-        ${inputValue && !isValid && '!border-rose-400'}
+        ${inputValue && !isValid && '!border-rose-400 animate-shake'}
       `} />
-    </div>
+    </div> 
   )
 }
 

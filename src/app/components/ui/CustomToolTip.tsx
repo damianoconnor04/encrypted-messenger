@@ -13,12 +13,12 @@ const CustomToolTip: React.FC<ToolTipProps> = ({ id, content, delay, children, p
   if (!delay) delay = 1000
   if (!place) place = 'top'
   return (
-    <>
-      <span data-tooltip-id={id} data-tooltip-content={content} data-tooltip-delay-show={delay} data-tooltip-place={place} data-tooltip-delay-hide={200}>
+    <div>
+      <div data-tooltip-id={id} data-tooltip-content={content} data-tooltip-delay-show={delay} data-tooltip-place={place} data-tooltip-delay-hide={200}>
         {children}
-      </span>
-      <Tooltip id={id} />
-    </>
+      </div>
+      <span className='text-base'><Tooltip id={id} /></span>
+    </div>
   );
 };
 
