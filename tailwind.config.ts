@@ -35,6 +35,27 @@ const config: Config = {
         overlay: 'overlay 250ms linear',
         shake: 'shake 100ms linear'
       },
+      colors: {
+        'd-border': '#50555d',
+        'l-border': '#e2e8f0',
+        'd-accent': '#38383886',
+        'l-accent': '#c0c0c086',
+
+        'l-soft-text': '#777777',
+        'd-soft-text': '#999999',
+
+        'l-hoverbg': '#32323233',
+        'l-hoverbg2': '#3232321a',
+        'd-hoverbg': '#ffffff33',
+        'd-hoverbg2': '#ffffff1a',
+
+        'l-panelbg': '#f0f0f0',
+        'd-panelbg': '#1a1a1a',
+
+        'l-overlay': '#242d35a8',
+        'd-overlay': '#48596866',
+
+      }
     },
   },
   plugins: [],

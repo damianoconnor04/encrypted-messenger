@@ -11,58 +11,27 @@ body { background-color: var(--bg); font-family: 'Rubik', sans-serif }
 
 /* light mode variables */
 :root {
-  --white-bg: #ffffff33;
-  --bg: #fff;
-  --alt-bg: #000;
-  --text: #000;
   --alt-text: #fff;
-  --text-light: #777777;
-  --bg-accent: #c0c0c086;
-  --bg-overlay: #242d35a8;
   --secondary-button-bg: inherit;
   --secondary-button-text: inherit;
-  --bg-messagePanel: #f0f0f0;
-  --bg-hover: rgba(50,50,50,0.2);
-  --bg-hover2: rgba(50,50,50,0.1);
-  --border: #94a3b8;
+
 }
 /* dark mode variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --white-bg: #ffffff33;
-    --bg: #000;
-    --alt-bg: #fff;
-    --text: #fff;
     --alt-text: #000;
-    --text-light: #999999;
-    --bg-accent: #38383886;
-    --bg-overlay: #48596866;
     --secondary-button-bg: #fff;
     --secondary-button-text: #000;
-    --bg-messagePanel: #1a1a1a;
-    --bg-hover: #ffffff33;
-    --bg-hover2: #ffffff1a;
-    --border: #475569;
+
+
   }
 }
-/* util variable classes */
-.white-bg { background-color: var(--white-bg) }
 /* light/dark mode toggle classes */
-.t-bg { background-color: var(--bg) }
-.t-alt-bg { background-color: var(--alt-bg) }
-.t-text { color: var(--text) }
 .t-alt-text { color: var(--alt-text) }
-.t-text-light { color: var(--text-light) }
-.t-bg-accent { background-color: var(--bg-accent) }
-.t-bg-overlay { background-color: var(--bg-overlay) }
 .t-s-button-bg { background-color: var(--secondary-button-bg) }
 .t-s-button-text { color: var(--secondary-button-text) }
-.t-bg-messagePanel { background-color: var(--bg-messagePanel) }
-.t-bg-hover:hover { background-color: var(--bg-hover) }
-.t-bg-hover2:hover { background-color: var(--bg-hover2) }
-.t-border { border-color: var(--border) }
 
-/* other utils */
+/* utils */
 .hide-scroll::-webkit-scrollbar { display: none }
 .hide-scroll { -ms-overflow-style: none; scrollbar-width: none }
 .overlay { background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0)) }
