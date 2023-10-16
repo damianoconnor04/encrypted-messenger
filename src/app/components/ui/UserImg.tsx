@@ -9,7 +9,7 @@ const UserImg = ({ letter, color, size, variant }: { letter: string, color?: str
     ${variant === 'edit' && 'transition-colors cursor-pointer'}
     `}>
       {variant === 'edit' && <FiEdit className='absolute opacity-0 group-hover:opacity-100' />}
-      <span className='font-bold leading-3'>{letter}</span>
+      <span className={`font-bold leading-3 ${size === 'md' && 'text-sm'}`}>{letter}</span>
     </div>
   )
 }
