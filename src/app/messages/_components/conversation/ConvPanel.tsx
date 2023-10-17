@@ -4,7 +4,7 @@ import CustomToolTip from '@/app/components/ui/CustomToolTip'
 import UserImg from '@/app/components/ui/UserImg'
 import React, { ChangeEvent, useState } from 'react'
 import { IoMdCloseCircleOutline } from 'react-icons/io'
-import { IoLogOutOutline, IoNotificationsOffOutline, IoNotificationsOutline, IoPersonOutline, IoTrashBin, IoWarning, IoWarningOutline } from 'react-icons/io5'
+import { IoNotificationsOffOutline, IoNotificationsOutline, IoTrashBin, IoWarning } from 'react-icons/io5'
 import { BsPinAngle, BsPinAngleFill } from 'react-icons/bs'
 
 const ConvPanel = ({ name, time }: { name: string; time: string }) => {
@@ -22,15 +22,23 @@ const ConvPanel = ({ name, time }: { name: string; time: string }) => {
   const togglePinned = () => setPinned(!pinned)
 
   return (
-    <div className='pr-3 py-3 w-full h-full dark:bg-d-panelbg bg-l-panelbg'>
+    <div className={`py-3 pr-3 w-full h-full dark:bg-d-panelbg bg-l-panelbg`}>
       <div className='w-full h-full flex flex-col justify-between'>
-        <button onClick={() => setShowFriendModal(true)} className='min-w-0 w-full flex flex-col items-center p-2 rounded-lg dark:hover:bg-d-hoverbg2 hover:bg-l-hoverbg2'>
-          <UserImg letter={name.charAt(0)} size='md' />
-          <h6 className='dark:text-white text-black md:text-sm lg:text-base xl:text-lg font-medium tracking-tight'>{name.split(' ')[0] + (' ') + name.split(' ')[1].charAt(0)}</h6>
-          <span className='dark:text-d-soft-text text-l-soft-text md:text-[0.625rem] lg:text-xs'>Last seen <time>{time}</time></span>
-        </button>
+        <div className='mx-auto w-full'>
+          <button onClick={() => []} className="transition-colors group h-9 max-h-9 flex items-center justify-center gap-2 mb-3 w-full dark:text-d-soft-text text-l-soft-text dark:hover:!text-sky-400/60 hover:!text-sky-400">
+            <div className='h-[1px] dark:bg-l-accent bg-d-accent w-full group-hover:dark:bg-sky-400/60 group-hover:bg-sky-400' />
+            <span className='text-sm whitespace-nowrap'>Hide panel</span>
+            <div className='h-[1px] dark:bg-l-accent bg-d-accent w-full group-hover:dark:bg-sky-400/60 group-hover:bg-sky-400' />
+          </button>        
 
-        <div className='flex-1 my-3 flex flex-col gap-y-2'>
+          <button onClick={() => setShowFriendModal(true)} className='transition-colors min-w-0 w-full flex flex-col items-center p-2 rounded-lg dark:hover:bg-d-hoverbg2 hover:bg-l-hoverbg2'>
+            <UserImg letter={name.charAt(0)} size='md' />
+            <h6 className='dark:text-white text-black md:text-sm lg:text-base xl:text-lg font-medium tracking-tight'>{name.split(' ')[0] + (' ') + name.split(' ')[1].charAt(0)}</h6>
+            <span className='dark:text-d-soft-text text-l-soft-text md:text-[0.625rem] lg:text-xs'>Last seen <time>{time}</time></span>
+          </button>
+        </div>
+
+        <div className='h-full flex flex-col gap-y-2 my-3'>
           {/* <h6 className='dark:text-white text-black tracking-tight font-medium'>Settings</h6>
           <div className='flex flex-col gap-y-1 mt-1'>
             <button className='flex items-center dark:hover:bg-d-hoverbg2 hover:bg-l-hoverbg2 gap-2 w-full px-2 py-1 rounded-lg' onClick={toggleNotifications}>

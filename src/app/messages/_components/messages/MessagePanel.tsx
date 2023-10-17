@@ -5,6 +5,7 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import MessageBox from './MessageBox'
 import { MessageContent } from './MessageContent'
 import CustomToolTip from '@/app/components/ui/CustomToolTip'
+import Link from 'next/link'
 
 const MessagePanel = () => {
   const sortedMessages = [...MessageContent].sort((a, b) => {
@@ -15,7 +16,7 @@ const MessagePanel = () => {
   return (
     <aside className='overflow-hidden dark:bg-d-panelbg bg-l-panelbg flex flex-col h-full'>
       <div className='py-3 px-1.5 flex items-center justify-between dark:text-white text-black'>
-        <span className='h-9 flex items-center justify-center font-bold cursor-default pl-3 text-xl'>Messages</span>
+        <Link href="/messages" className='h-9 flex items-center justify-center font-bold pl-3 text-xl'>Messages</Link>
         <div className='flex items-center text-xl'>
           <CustomToolTip id='settings' content='Settings'><button className='p-1.5 rounded-full transition-colors dark:hover:bg-d-hoverbg hover:bg-l-hoverbg'><IoSettingsOutline /></button></CustomToolTip>
           <CustomToolTip id='mkgroup' content='Create group'><button className='p-1.5 rounded-full transition-colors dark:hover:bg-d-hoverbg hover:bg-l-hoverbg'><AiOutlineUsergroupAdd /></button></CustomToolTip>

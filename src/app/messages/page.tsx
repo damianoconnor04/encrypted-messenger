@@ -18,13 +18,13 @@ const Messages = () => {
     <>
       <div className='w-full xl:block hidden'>
       <PanelGroup direction='horizontal'>
-        <Panel defaultSize={25} minSize={20} maxSize={25}>
+        <Panel defaultSize={22} minSize={18} maxSize={22}>
           <MessagePanel />
         </Panel>
         <PanelResizeHandle className='w-1.5 dark:bg-d-panelbg bg-l-panelbg dark:border-d-border border-l-border border-r cursor-e-resize transition-colors hover:!border-sky-400/50' />
         {name && message && time
           ? <>
-            <Panel defaultSize={55} minSize={50}>
+            <Panel defaultSize={65} minSize={50}>
               <Conversation name={name} message={message} time={time} />
             </Panel>
             <PanelResizeHandle className='w-3 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />

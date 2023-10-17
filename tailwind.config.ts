@@ -36,7 +36,7 @@ const config: Config = {
         shake: 'shake 100ms linear'
       },
       colors: {
-        'd-border': '#50555d',
+        'd-border': '#2d2f30',
         'l-border': '#e2e8f0',
         'd-accent': '#38383886',
         'l-accent': '#c0c0c086',
