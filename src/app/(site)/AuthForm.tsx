@@ -9,12 +9,11 @@ import CreateAccModal from '../components/modals/CreateAccModal'
 import Button from '../components/ui/Button'
 
 const AuthForm = () => {
-  const [isLoading, setIsLoading] = useState(false)
   const [showSignInModal, setShowSignInModal] = useState(false)
   const [showCreateModal, setShowCreateModal] = useState(false)
 
   return (
-    <div className='h-[calc(100%_-_2.5rem)] md:flex md:items-center w-full overflow-hidden'>
+    <div className='h-[calc(100%_-_2.5rem)] md:flex md:items-center w-full overflow-hidden dark:bg-black bg-white'>
       <div className='md:h-full px-4 sm:px-12 md:pr-0 md:pb-6 pt-6 flex md:flex-col justify-between flex-1 dark:text-white text-black text-4xl md:text-8xl w-full'>
         <SiDatadog />
         <span className={`${modak.className}`}>datadog</span>

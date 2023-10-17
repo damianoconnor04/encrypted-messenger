@@ -19,15 +19,14 @@ const MessageBox:React.FC<MessageBoxProps> = ({ name, message, time, isRead }) =
 
   return (
     <Link href={`?name=${name}&message=${message}&time=${time}`} className='z-10 dark:hover:bg-d-hoverbg hover:bg-l-hoverbg flex items-center max-h-full gap-2 p-3 rounded-lg transition-colors'>
-      <div className='max-md:block xl:block hidden'><UserImg letter={name.charAt(0)} color={getRandomColor()} size='lg' /></div>
-      <div className='md:max-xl:block hidden'><UserImg letter={name.charAt(0)} color={getRandomColor()} size='md' /></div>
+      <UserImg letter={name.charAt(0)} color={getRandomColor()} size='lg' />
       <div className='dark:text-white text-black min-w-0 flex flex-col justify-between w-full'> {/* min-w-0 is magic fix for truncate */}
         <div className='flex items-center justify-between'>
-          <p className={`md:text-xs xl:text-base truncate  ${isRead ? 'font-light' : 'font-medium'}`}>{name}</p>
-          <div className={`md:text-[0.5rem] xl:text-xs min-w-[10%] flex justify-end items-center ${isRead ? 'font-light' : 'font-medium'}`}><time>{time}</time></div> {/* time is wrapped in min-w for truncate too */}
+          <p className={`text-base truncate  ${isRead ? 'font-light' : 'font-medium'}`}>{name}</p>
+          <div className={`text-xs min-w-[10%] flex justify-end items-center ${isRead ? 'font-light' : 'font-medium'}`}><time>{time}</time></div> {/* time is wrapped in min-w for truncate too */}
         </div>
         <div className='flex items-center justify-between'>
-          <p className={`md:text-xs xl:text-sm truncate ${isRead && 'font-light dark:text-d-soft-text text-l-soft-text'}`}>{message}</p>
+          <p className={`text-sm truncate ${isRead && 'font-light dark:text-d-soft-text text-l-soft-text'}`}>{message}</p>
           <div className='min-w-[10%] flex justify-end'>
             { isRead && <span className='text-green-400'><IoCheckmarkDoneOutline /></span> }
             { !isRead && <div className='w-1.5 h-1.5 bg-sky-400 animate-pulse rounded-full border border-sky-600/20' /> }

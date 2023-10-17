@@ -16,7 +16,7 @@ const Messages = () => {
 
   return (
     <>
-      <div className='w-full md:block hidden'>
+      <div className='w-full xl:block hidden'>
       <PanelGroup direction='horizontal'>
         <Panel defaultSize={25} minSize={20} maxSize={25}>
           <MessagePanel />
@@ -27,18 +27,18 @@ const Messages = () => {
             <Panel defaultSize={55} minSize={50}>
               <Conversation name={name} message={message} time={time} />
             </Panel>
-            <PanelResizeHandle className='w-1.5 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />
+            <PanelResizeHandle className='w-3 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />
             <Panel maxSize={20} defaultSize={12} minSize={12}>
               <ConvPanel name={name} time={time} />
             </Panel>
           </>
           : <Panel defaultSize={75}>
-            <div className='hidden md:block w-full h-full'><EmptyState /></div>
+            <div className='hidden xl:block w-full h-full'><EmptyState /></div>
           </Panel>
         }
       </PanelGroup>
       </div>
-      <div className='md:hidden block w-full h-[calc(100%_-_2.75rem)]'>
+      <div className='xl:hidden block w-full h-[calc(100%_-_2.75rem)]'>
         {!name && !message && !time && <MessagePanel />}
         {name && message && time && <Conversation name={name} message={message} time={time} />}
       </div>

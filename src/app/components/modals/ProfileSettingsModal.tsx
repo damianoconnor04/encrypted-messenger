@@ -5,7 +5,7 @@ import UserImg from '../ui/UserImg'
 import Link from 'next/link'
 import Button from '../ui/Button'
 import { AiOutlineUserAdd } from 'react-icons/ai'
-import { IoSettingsOutline } from 'react-icons/io5'
+import { IoPencil, IoSettingsOutline } from 'react-icons/io5'
 import { TbLogout } from 'react-icons/tb'
 import InputS from '../ui/InputS'
 import { FieldValues, useForm } from 'react-hook-form'
@@ -22,6 +22,7 @@ const ProfileSettingsModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: 
           <div className='overlay translate-y-full'></div><UserImg letter='D' size='lg' variant='edit' />
           <div className='flex items-center justify-between'>
             <InputS username='David Lee' setInputChanged={setInputChanged} id='username' register={register} errors={errors} />
+            
           </div>
           <Link href="#" className='text-sm text-sky-500 my-0.5'>@official_lee5</Link>
           <div className='space-y-1.5 mt-2 mb-1 w-full'>

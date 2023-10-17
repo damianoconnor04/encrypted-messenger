@@ -14,7 +14,7 @@ const ConvHeader = ({ name }: { name: string }) => {
     <div className='p-3 dark:text-white text-black border-b dark:border-d-border border-l-border'>
       <div className='max-h-9 flex items-center justify-between'>
       <div className='flex items-center gap-2'>
-        <span className='md:hidden block'><CustomToolTip delay={1250} id='more' content='More'><button onClick={() => router.back()} className='p-1.5 rounded-full transition-colors hover:text-sky-400/95'><IoChevronBack /></button></CustomToolTip></span>
+        <span className='xl:hidden block'><CustomToolTip delay={1250} id='more' content='More'><button onClick={() => router.back()} className='p-1.5 rounded-full transition-colors hover:text-sky-400/95'><IoChevronBack /></button></CustomToolTip></span>
         <div className='w-2 h-2 bg-neutral-400 border dark:border-d-border border-l-border rounded-full' />
         <h6 className='font-medium tracking-tight h-9 flex items-center justify-center cursor-default xl:text-lg'>{name}</h6>
       </div>
