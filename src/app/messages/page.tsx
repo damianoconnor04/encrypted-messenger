@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
 import MessagePanel from './_components/messages/MessagePanel'
@@ -9,6 +9,7 @@ import EmptyState from '../components/EmptyState'
 
 
 const Messages = () => {
+  const [panelOpen, setPanelOpen] = useState<boolean>(true)
   const searchParams = useSearchParams()
   const name = searchParams.get('name')
   const message = searchParams.get('message')
@@ -17,32 +18,37 @@ const Messages = () => {
   return (
     <>
       <div className='w-full xl:block hidden'>
-      <PanelGroup direction='horizontal'>
-        <Panel defaultSize={22} minSize={18} maxSize={22}>
-          <MessagePanel />
-        </Panel>
-        <PanelResizeHandle className='w-1.5 dark:bg-d-panelbg bg-l-panelbg dark:border-d-border border-l-border border-r cursor-e-resize transition-colors hover:!border-sky-400/50' />
-        {name && message && time
-          ? <>
-            <Panel defaultSize={65} minSize={50}>
-              <Conversation name={name} message={message} time={time} />
-            </Panel>
-            <PanelResizeHandle className='w-3 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />
-            <Panel maxSize={20} defaultSize={12} minSize={12}>
-              <ConvPanel name={name} time={time} />
-            </Panel>
-          </>
-          : <Panel defaultSize={75}>
-            <div className='hidden xl:block w-full h-full'><EmptyState /></div>
+        <PanelGroup direction='horizontal'>
+          <Panel defaultSize={22} minSize={18} maxSize={22}>
+            <MessagePanel />
           </Panel>
-        }
-      </PanelGroup>
+          <PanelResizeHandle className='w-1.5 dark:bg-d-panelbg bg-l-panelbg dark:border-d-border border-l-border border-r cursor-e-resize transition-colors hover:!border-sky-400/50' />
+          {name && message && time ? 
+            <>
+              <Panel defaultSize={63} minSize={50}>
+                <Conversation name={name} message={message} time={time} setPanelOpen={setPanelOpen} panelOpen={panelOpen} />
+              </Panel>
+
+              {panelOpen &&
+              <>
+                <PanelResizeHandle className='w-3 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />
+                <Panel maxSize={20} defaultSize={14} minSize={14}>
+                  <ConvPanel name={name} time={time} setPanelOpen={setPanelOpen} />
+                </Panel>
+              </>
+              }
+            </>
+            : <Panel defaultSize={75}>
+              <div className='hidden xl:block w-full h-full'><EmptyState /></div>
+            </Panel>
+          }
+        </PanelGroup>
       </div>
       <div className='xl:hidden block w-full h-[calc(100%_-_2.75rem)]'>
         {!name && !message && !time && <MessagePanel />}
         {name && message && time && <Conversation name={name} message={message} time={time} />}
       </div>
-      </>
+    </>
   )
 }
 

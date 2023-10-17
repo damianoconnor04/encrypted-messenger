@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Modal from './Modal'
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple } from 'react-icons/fa'
-import Input from '../ui/Input'
+import Input from '../ui/input/Input'
 import { FieldValues, useForm } from 'react-hook-form'
 import Button from '../ui/Button'
 

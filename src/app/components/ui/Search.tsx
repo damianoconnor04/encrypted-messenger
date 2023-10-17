@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 import { IoSearch, IoSearchOutline } from 'react-icons/io5'
+import CustomToolTip from './CustomToolTip'
 
 interface SearchProps {
   label?: string
@@ -20,7 +21,9 @@ const Search: React.FC<SearchProps> = ({ id, type, required, register, errors, d
   }
   return (
     <div className='relative'>
-      <button type='button' onClick={handleClickedSearch} className={`absolute p-1.5 rounded-full transition-all hover:text-sky-400/95 top-1/2 -translate-y-1/2 ${clickedSearch ? '-translate-x-[calc(1.25rem_+_6px)]' : 'right-0'}`}><IoSearch /></button>
+      <div className={`top-1/2 -translate-y-1/2 absolute ${clickedSearch ? '-translate-x-[calc(1.25rem_+_6px)]' : 'right-0'}`}>
+        <CustomToolTip id='search' content='Search'><button type='button' onClick={handleClickedSearch} className={`p-1.5 rounded-full transition-all hover:text-sky-400/95`}><IoSearch /></button></CustomToolTip>
+      </div>
       {clickedSearch && (
         <input id={id} type={type} autoComplete={type} disabled={disabled} {...register(id, { required })} className={`
         text-sm bg-inherit border-b focus-visible:outline-none focus-visible:border-sky-400

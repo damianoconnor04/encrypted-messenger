@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Modal from './Modal'
-import Input from '../ui/Input'
+import Input from '../ui/input/Input'
 import { FieldValues, useForm } from 'react-hook-form'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
 import Button from '../ui/Button'

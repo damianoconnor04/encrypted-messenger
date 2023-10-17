@@ -5,9 +5,9 @@ import UserImg from '../ui/UserImg'
 import Link from 'next/link'
 import Button from '../ui/Button'
 import { AiOutlineUserAdd } from 'react-icons/ai'
-import { IoPencil, IoSettingsOutline } from 'react-icons/io5'
+import { IoSettingsOutline } from 'react-icons/io5'
 import { TbLogout } from 'react-icons/tb'
-import InputS from '../ui/InputS'
+import InputS from '../ui/input/InputS'
 import { FieldValues, useForm } from 'react-hook-form'
 
 const ProfileSettingsModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: () => void }) => {
@@ -26,10 +26,10 @@ const ProfileSettingsModal = ({ isOpen, onClose }: { isOpen?: boolean; onClose: 
           </div>
           <Link href="#" className='text-sm text-sky-500 my-0.5'>@official_lee5</Link>
           <div className='space-y-1.5 mt-2 mb-1 w-full'>
-            <Button icon variant='secondary' type='button'><IoSettingsOutline />Settings</Button>
-            <Button icon variant='secondary' type='button'><AiOutlineUserAdd />Add account</Button>
+            <Button icon variant='secondary' type='button'><IoSettingsOutline className='text-lg' />Settings</Button>
+            <Button icon variant='secondary' type='button'><AiOutlineUserAdd className='text-lg' />Add account</Button>
             {isInputChanged && <Button variant='primary' type='submit'>Save</Button>}
-            <Button icon danger type='button'><TbLogout />Log out</Button>
+            <Button icon danger type='button'><TbLogout className='text-lg' />Log out</Button>
           </div>
         </form>
       </div>

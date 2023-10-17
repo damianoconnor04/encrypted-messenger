@@ -36,10 +36,13 @@ const config: Config = {
         shake: 'shake 100ms linear'
       },
       colors: {
-        'd-border': '#2d2f30',
-        'l-border': '#e2e8f0',
-        'd-accent': '#38383886',
+        'd-border': '#2f3132ee',
+        'l-border': '#d1d7d0ee',
+
+        'd-accent': '#101010ee',
         'l-accent': '#c0c0c086',
+        'd-accent2': '#3e4348aa',
+        'l-accent2': '#d3d6d955',
 
         'l-soft-text': '#777777',
         'd-soft-text': '#999999',

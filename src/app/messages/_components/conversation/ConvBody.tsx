@@ -1,6 +1,6 @@
 import Button from '@/app/components/ui/Button'
 import React, { useEffect, useState } from 'react'
-import { fakeMsgs } from './_fakemsg'
+import { fakeMsgs } from './FakeMessages'
 
 interface ConvBodyProps {
   name: string
