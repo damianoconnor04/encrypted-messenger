@@ -11,9 +11,10 @@ interface NotificationBoxProps {
   time: string
   wasOpened: boolean
   type: 'read' | 'unread' | 'flagged'
+  id: number
 }
 
-const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, wasOpened, type }) => {
+const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, wasOpened, type, id }) => {
   const [removed, setRemoved] = useState<boolean>(false)
   const [hover, setHover] = useState<boolean>(false)
   const [rightHover, setRightHover] = useState<boolean>(false)
@@ -29,7 +30,7 @@ const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, 
 
   return (
     <>
-      {!removed && (
+      {!removed && !(id > 6) && (
         <motion.a transition={{ ease: "linear", duration: 0.3, y: { duration: 0.5 }  }} exit={{ y: '-100%' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} initial={{ paddingRight: '0.75rem' }} whileHover={!rightHover && !midHover && !leftHover ? { paddingRight: '3.25rem' } : { paddingRight: '8.5rem' }} href="#" className={`border relative overflow-hidden flex items-center justify-center max-w-full gap-2 p-3 rounded-xl ${flagged ? 'border-orange-400' : 'border-transparent'} ${read || type === 'read' ? '' : 'dark:bg-d-hoverbg/5 bg-l-hoverbg/5'} ${wasOpened && type === 'unread' ? 'hidden' : !wasOpened && type === 'read' && 'hidden'}`}>
           <UserImg variant='notification' letter={name.charAt(0)} color={getRandomColor()} size='lg' />
           <div className={`min-w-0 flex flex-col dark:text-white text-black w-full`}>

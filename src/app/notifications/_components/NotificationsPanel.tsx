@@ -40,7 +40,7 @@ const NotificationsPanel = () => {
       </div>
 
       <div className="flex flex-col w-full h-[calc(100%_-_2.75rem)]">
-        <div className={`w-full overflow-hidden border-b dark:border-d-border border-l-border`}>
+        <div className={`w-full overflow-y-scroll hide-scroll`}>
           <button onClick={() => setFlaggedOpen(!flaggedOpen)} className='w-full px-4 mb-1 flex items-center justify-between border-b dark:border-d-border border-l-border'>
             <h4 className='py-2 font-bold text-lg tracking-tight'>Flagged</h4>
             {flaggedOpen ? <IoRemove className='text-xl' /> : <IoAdd className='text-xl' />}
@@ -51,16 +51,16 @@ const NotificationsPanel = () => {
               initial={{ height: 0 }}
               animate={flaggedOpen ? { height: 'auto' } : { height: 0 }}
               exit={{ height: 0 }}
-              className='space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
+              className='space-y-1 dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
             >
               {sortedNotifications.map((item, idx) => {
-                return <NotificationBox type='flagged' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+                return <NotificationBox type='flagged' id={idx} key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
               })}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className={`w-full overflow-hidden border-b dark:border-d-border border-l-border`}>
+        <div className={`w-full overflow-y-scroll hide-scroll`}>
           <button onClick={() => setUnreadOpen(!unreadOpen)} className='w-full px-4 mb-1 flex items-center justify-between border-b dark:border-d-border border-l-border'>
             <h4 className='py-2 font-bold text-lg tracking-tight'>Unread</h4>
             {unreadOpen ? <IoRemove className='text-xl' /> : <IoAdd className='text-xl' />}
@@ -74,13 +74,13 @@ const NotificationsPanel = () => {
               className='space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
             >
               {sortedNotifications.map((item, idx) => {
-                return <NotificationBox type='unread' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+                return <NotificationBox type='unread' id={idx} key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
               })}
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className={`w-full overflow-hidden border-b dark:border-d-border border-l-border`}>
+        <div className={`w-full overflow-y-scroll hide-scroll`}>
           <button onClick={() => setReadOpen(!readOpen)} className='w-full px-4 mb-1 flex items-center justify-between border-b dark:border-d-border border-l-border'>
             <h4 className='py-2 font-bold text-lg tracking-tight'>Read</h4>
             {readOpen ? <IoRemove className='text-xl' /> : <IoAdd className='text-xl' />}
@@ -94,7 +94,7 @@ const NotificationsPanel = () => {
               className='space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
             >
               {sortedNotifications.map((item, idx) => {
-                return <NotificationBox type='read' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+                return <NotificationBox type='read' id={idx} key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
               })}
             </motion.div>
           </AnimatePresence>
