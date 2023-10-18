@@ -30,18 +30,22 @@ const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, 
   return (
     <>
       {!removed && (
-        <motion.a onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} initial={{ paddingRight: '0.75rem' }} whileHover={!rightHover && !midHover && !leftHover ? { paddingRight: '3.25rem' } : { paddingRight: '8.5rem' }} href="#" className={`border relative overflow-hidden flex items-center justify-center max-w-full gap-2 p-3 rounded-xl ${flagged ? 'border-orange-400' : 'border-transparent'} ${read || type === 'read' ? '' : 'dark:bg-d-hoverbg/5 bg-l-hoverbg/5'} ${wasOpened && type === 'unread' ? 'hidden' : !wasOpened && type === 'read' && 'hidden'}`}>
+        <motion.a transition={{ ease: "linear", duration: 0.3, y: { duration: 0.5 }  }} exit={{ y: '-100%' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} initial={{ paddingRight: '0.75rem' }} whileHover={!rightHover && !midHover && !leftHover ? { paddingRight: '3.25rem' } : { paddingRight: '8.5rem' }} href="#" className={`border relative overflow-hidden flex items-center justify-center max-w-full gap-2 p-3 rounded-xl ${flagged ? 'border-orange-400' : 'border-transparent'} ${read || type === 'read' ? '' : 'dark:bg-d-hoverbg/5 bg-l-hoverbg/5'} ${wasOpened && type === 'unread' ? 'hidden' : !wasOpened && type === 'read' && 'hidden'}`}>
           <UserImg variant='notification' letter={name.charAt(0)} color={getRandomColor()} size='lg' />
           <div className={`min-w-0 flex flex-col dark:text-white text-black w-full`}>
+
             <div className="min-w-0 flex w-full items-center justify-between">
               <span className='uppercase leading-3 text-xs text-sky-400'>messages</span>
               <time className='dark:text-d-soft-text text-sm text-l-soft-text'>{time}</time>
             </div>
+
             <h6 className={`leading-5 font-bold tracking-tight text-lg truncate ${read || type === 'read' && 'font-medium'}`}>{name}</h6>
+            
             <div className='min-w-0 flex w-full items-center justify-between'>
               <p className={`leading-5 pt-0.5 font-medium truncate ${read || type === 'read' && 'font-normal dark:text-d-soft-text text-l-soft-text'}`}>{message}</p>
               {!wasOpened && <div className='ml-4 aspect-square w-2.5 h-2.5 bg-sky-400 animate-pulse rounded-full border border-sky-600/20' />}
             </div>
+
           </div>
 
           {hover &&

@@ -15,7 +15,7 @@ const MessagePanel = () => {
 
   return (
     <aside className='p-3 xl:pb-3 xl:px-1.5 h-full dark:bg-d-panelbg bg-l-panelbg max-h-full overflow-hidden'>
-      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 !pr-0 flex items-center justify-between dark:text-white text-black'>
+      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 flex items-center justify-between dark:text-white text-black'>
       <Link href="/messages" className='flex items-center justify-center font-bold text-2xl tracking-tight'>Messages</Link>
         <div className='flex items-center text-2xl'>
           <CustomToolTip id='settings' content='Settings'><button className='p-1.5 rounded-full transition-colors dark:hover:bg-d-hoverbg hover:bg-l-hoverbg'><IoSettingsOutline /></button></CustomToolTip>

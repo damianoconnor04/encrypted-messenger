@@ -18,7 +18,7 @@ const MessageBox:React.FC<MessageBoxProps> = ({ name, message, time, isRead }) =
   }
 
   return (
-    <Link href={`?name=${name}&message=${message}&time=${time}`} className='z-10 dark:hover:bg-d-hoverbg hover:bg-l-hoverbg flex items-center max-h-full gap-2 p-3 rounded-lg transition-colors'>
+    <Link href={`?name=${name}&message=${message}&time=${time}`} className='z-10 dark:hover:bg-d-hoverbg hover:bg-l-hoverbg flex items-center max-h-full gap-2 p-3 px-3 rounded-lg transition-colors'>
       <UserImg letter={name.charAt(0)} color={getRandomColor()} size='lg' />
       <div className='dark:text-white text-black min-w-0 flex flex-col justify-between w-full'> {/* min-w-0 is magic fix for truncate */}
         <div className='flex items-center justify-between'>

@@ -2,14 +2,20 @@
 import CustomToolTip from '@/app/components/ui/CustomToolTip'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { IoNotificationsOffOutline, IoNotificationsOutline } from 'react-icons/io5'
+import { IoAdd, IoNotificationsOffOutline, IoNotificationsOutline, IoRemove } from 'react-icons/io5'
 import { PiListBulletsLight, PiListChecksLight, PiListLight } from 'react-icons/pi'
 import NotificationBox from './NotificationBox'
 import { MessageContent } from '@/app/messages/_components/messages/MessageContent'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
 const NotificationsPanel = () => {
   const [notifications, toggleNotifications] = useState<boolean>(true)
   const [cleared, toggleCleared] = useState<boolean>(false)
+
+  const [flaggedOpen, setFlaggedOpen] = useState<boolean>(false)
+  const [unreadOpen, setUnreadOpen] = useState<boolean>(false)
+  const [readOpen, setReadOpen] = useState<boolean>(false)
+
   const sortedNotifications = [...MessageContent].sort((a, b) => {
     if (a.isRead === b.isRead) return 0
     return a.isRead ? 1 : -1
@@ -17,7 +23,7 @@ const NotificationsPanel = () => {
 
   return (
     <aside className='p-3 xl:pb-3 xl:px-1.5 xl:!pr-0.5 h-full dark:bg-d-panelbg bg-l-panelbg dark:text-white text-black max-h-full overflow-hidden'>
-      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 !pr-0 flex items-center justify-between'>
+      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 flex items-center justify-between'>
         <Link href="/notifications" className='flex items-center justify-center font-bold text-2xl tracking-tight'>Notifications</Link>
         <div className='flex items-center gap-2'>
           <CustomToolTip id='silence' content='Silence alerts'>
@@ -33,24 +39,65 @@ const NotificationsPanel = () => {
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <h4 className='p-4 font-bold text-lg tracking-tight'>Flagged</h4>
-        <div className="space-y-1 dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
-          {!cleared && sortedNotifications.map((item, idx) => {
-            return <NotificationBox type='unread' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
-          })}
+      <div className="flex flex-col w-full h-[calc(100%_-_2.75rem)]">
+        <div className={`w-full overflow-hidden border-b dark:border-d-border border-l-border`}>
+          <button onClick={() => setFlaggedOpen(!flaggedOpen)} className='w-full px-4 mb-1 flex items-center justify-between border-b dark:border-d-border border-l-border'>
+            <h4 className='py-2 font-bold text-lg tracking-tight'>Flagged</h4>
+            {flaggedOpen ? <IoRemove className='text-xl' /> : <IoAdd className='text-xl' />}
+          </button>
+          <AnimatePresence>
+            <motion.div
+              key={flaggedOpen ? 'flagged' : undefined}
+              initial={{ height: 0 }}
+              animate={flaggedOpen ? { height: 'auto' } : { height: 0 }}
+              exit={{ height: 0 }}
+              className='space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
+            >
+              {sortedNotifications.map((item, idx) => {
+                return <NotificationBox type='flagged' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+              })}
+            </motion.div>
+          </AnimatePresence>
         </div>
-        <h4 className='p-4 font-bold text-lg tracking-tight'>Unread</h4>
-        <div className="space-y-1 dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
-          {!cleared && sortedNotifications.map((item, idx) => {
-            return <NotificationBox type='unread' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
-          })}
+
+        <div className={`w-full overflow-hidden border-b dark:border-d-border border-l-border`}>
+          <button onClick={() => setUnreadOpen(!unreadOpen)} className='w-full px-4 mb-1 flex items-center justify-between border-b dark:border-d-border border-l-border'>
+            <h4 className='py-2 font-bold text-lg tracking-tight'>Unread</h4>
+            {unreadOpen ? <IoRemove className='text-xl' /> : <IoAdd className='text-xl' />}
+          </button>
+          <AnimatePresence>
+            <motion.div
+              key={unreadOpen ? 'unread' : undefined}
+              initial={{ height: 0 }}
+              animate={unreadOpen ? { height: 'auto' } : { height: 0 }}
+              exit={{ height: 0 }}
+              className='space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
+            >
+              {sortedNotifications.map((item, idx) => {
+                return <NotificationBox type='unread' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+              })}
+            </motion.div>
+          </AnimatePresence>
         </div>
-        <h4 className='p-4 font-bold text-lg tracking-tight'>Read</h4>
-        <div className="h-1/3 min-h-[33%] max-h-[33%] space-y-1 dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
-          {!cleared && sortedNotifications.map((item, idx) => {
-            return <NotificationBox type='read' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
-          })}
+
+        <div className={`w-full overflow-hidden border-b dark:border-d-border border-l-border`}>
+          <button onClick={() => setReadOpen(!readOpen)} className='w-full px-4 mb-1 flex items-center justify-between border-b dark:border-d-border border-l-border'>
+            <h4 className='py-2 font-bold text-lg tracking-tight'>Read</h4>
+            {readOpen ? <IoRemove className='text-xl' /> : <IoAdd className='text-xl' />}
+          </button>
+          <AnimatePresence>
+            <motion.div
+              key={readOpen ? 'read' : undefined}
+              initial={{ height: 0 }}
+              animate={readOpen ? { height: 'auto' } : { height: 0 }}
+              exit={{ height: 0 }}
+              className='space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg overflow-y-scroll hide-scroll'
+            >
+              {sortedNotifications.map((item, idx) => {
+                return <NotificationBox type='read' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+              })}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
 
