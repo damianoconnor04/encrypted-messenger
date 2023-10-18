@@ -28,10 +28,17 @@ const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, 
     return colors[Math.floor(Math.random() * colors.length)]
   }
 
+  const pinned = () => {
+    if (type === 'flagged') {
+      if (id === 5) return true
+      else return false
+    } else return true
+  }
+
   return (
     <>
-      {!removed && !(id > 6) && (
-        <motion.a transition={{ ease: "linear", duration: 0.3, y: { duration: 0.5 }  }} exit={{ y: '-100%' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} initial={{ paddingRight: '0.75rem' }} whileHover={!rightHover && !midHover && !leftHover ? { paddingRight: '3.25rem' } : { paddingRight: '8.5rem' }} href="#" className={`border relative overflow-hidden flex items-center justify-center max-w-full gap-2 p-3 rounded-xl ${flagged ? 'border-orange-400' : 'border-transparent'} ${read || type === 'read' ? '' : 'dark:bg-d-hoverbg/5 bg-l-hoverbg/5'} ${wasOpened && type === 'unread' ? 'hidden' : !wasOpened && type === 'read' && 'hidden'}`}>
+      {!removed && !(id > 6) && pinned() && (
+        <motion.a transition={{ ease: "linear", duration: 0.3, y: { duration: 0.5 } }} exit={{ y: '-100%' }} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} initial={{ paddingRight: '0.75rem' }} whileHover={!rightHover && !midHover && !leftHover ? { paddingRight: '3.25rem' } : { paddingRight: '8.5rem' }} href="#" className={`border relative overflow-hidden flex items-center justify-center max-w-full gap-2 p-3 rounded-xl ${type === 'read' && '!border-transparent'} ${flagged || id === 5 ? 'border-orange-400' : 'border-transparent'} ${read || type === 'read' ? '' : 'dark:bg-d-hoverbg/5 bg-l-hoverbg/5'} ${wasOpened && type === 'unread' ? 'hidden' : !wasOpened && type === 'read' && 'hidden'}`}>
           <UserImg variant='notification' letter={name.charAt(0)} color={getRandomColor()} size='lg' />
           <div className={`min-w-0 flex flex-col dark:text-white text-black w-full`}>
 
@@ -41,7 +48,7 @@ const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, 
             </div>
 
             <h6 className={`leading-5 font-bold tracking-tight text-lg truncate ${read || type === 'read' && 'font-medium'}`}>{name}</h6>
-            
+
             <div className='min-w-0 flex w-full items-center justify-between'>
               <p className={`leading-5 pt-0.5 font-medium truncate ${read || type === 'read' && 'font-normal dark:text-d-soft-text text-l-soft-text'}`}>{message}</p>
               {!wasOpened && <div className='ml-4 aspect-square w-2.5 h-2.5 bg-sky-400 animate-pulse rounded-full border border-sky-600/20' />}
@@ -76,7 +83,7 @@ const NotificationBox: React.FC<NotificationBoxProps> = ({ name, message, time, 
                 <IoMailOpenOutline />
               </motion.button>
               <motion.button
-                onClick={() => setFlagged(!flagged)}
+                onClick={() => {setFlagged(!flagged); if (type === 'flagged') id === 5 && setRemoved(true) }}
                 onHoverStart={() => setLeftHover(true)}
                 onHoverEnd={() => setLeftHover(false)}
                 transition={{ ease: "linear", duration: 0.15 }}
