@@ -11,7 +11,7 @@ const UserImg = ({ letter, color, size, variant, highlight }: { letter: string, 
     `}>
       {variant === 'edit' && <FiEdit className='absolute opacity-0 group-hover:opacity-100' />}
       <span className={`font-bold leading-3 ${size === 'md' && 'text-sm'}`}>{letter}</span>
-      {variant === 'notification' && <span className={`absolute -bottom-1 -right-1 ${highlight ? 'text-white' : 'dark:text-d-soft-text text-l-soft-text'}`}><IoChatbubbleSharp className='text-lg' /></span>}
+      {variant === 'notification' && <span className={`absolute -bottom-0.5 -right-0.5 text-white`}><IoChatbubbleSharp className='text-lg' /></span>}
     </div>
   )
 }

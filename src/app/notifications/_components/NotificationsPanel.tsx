@@ -16,9 +16,9 @@ const NotificationsPanel = () => {
   })
 
   return (
-    <aside className='xl:max-w-lg p-3 xl:pb-3 xl:px-1.5 h-full dark:bg-d-panelbg bg-l-panelbg max-h-full overflow-hidden'>
-      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 !pr-0 flex items-center justify-between dark:text-white text-black'>
-        <Link href="/notifications" className='flex items-center justify-center font-bold text-2xl'>Notifications</Link>
+    <aside className='p-3 xl:pb-3 xl:px-1.5 xl:!pr-0.5 h-full dark:bg-d-panelbg bg-l-panelbg dark:text-white text-black max-h-full overflow-hidden'>
+      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 !pr-0 flex items-center justify-between'>
+        <Link href="/notifications" className='flex items-center justify-center font-bold text-2xl tracking-tight'>Notifications</Link>
         <div className='flex items-center gap-2'>
           <CustomToolTip id='silence' content='Silence alerts'>
             <button onClick={() => toggleNotifications(!notifications)} className='p-1.5 dark:hover:bg-d-hoverbg2 hover:bg-l-hoverbg2 transition-colors rounded-full'>
@@ -32,11 +32,29 @@ const NotificationsPanel = () => {
           </CustomToolTip>
         </div>
       </div>
-      <div className="space-y-1 h-full dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
-        {!cleared && sortedNotifications.map((item, idx) => {
-          return <NotificationBox key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
-        })}
+
+      <div className="flex flex-col">
+        <h4 className='p-4 font-bold text-lg tracking-tight'>Flagged</h4>
+        <div className="space-y-1 dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
+          {!cleared && sortedNotifications.map((item, idx) => {
+            return <NotificationBox type='unread' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+          })}
+        </div>
+        <h4 className='p-4 font-bold text-lg tracking-tight'>Unread</h4>
+        <div className="space-y-1 dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
+          {!cleared && sortedNotifications.map((item, idx) => {
+            return <NotificationBox type='unread' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+          })}
+        </div>
+        <h4 className='p-4 font-bold text-lg tracking-tight'>Read</h4>
+        <div className="h-1/3 min-h-[33%] max-h-[33%] space-y-1 dark:bg-d-panelbg bg-l-panelbg px-1 pb-1 overflow-y-scroll hide-scroll">
+          {!cleared && sortedNotifications.map((item, idx) => {
+            return <NotificationBox type='read' key={idx} name={item.name} message={item.message} time={item.time} wasOpened={item.isRead} />
+          })}
+        </div>
       </div>
+
+
     </aside>
   )
 }
