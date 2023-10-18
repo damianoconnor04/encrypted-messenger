@@ -14,10 +14,10 @@ const MessagePanel = () => {
   })
 
   return (
-    <aside className='h-full p-3 dark:bg-d-panelbg bg-l-panelbg border-b dark:border-d-border border-l-border'>
-      <div className='h-9 max-h-9 px-1.5 pb-3 xl:pb-0 flex items-center justify-between dark:text-white text-black'>
-      <Link href="/messages" className='flex items-center justify-center font-bold pl-3 text-xl'>Messages</Link>
-        <div className='flex items-center text-xl'>
+    <aside className='p-3 xl:pb-3 xl:px-1.5 h-full dark:bg-d-panelbg bg-l-panelbg max-h-full overflow-hidden'>
+      <div className='pb-7 p-4 xl:pt-0 xl:pb-3 !pr-0 flex items-center justify-between dark:text-white text-black'>
+      <Link href="/messages" className='flex items-center justify-center font-bold text-2xl'>Messages</Link>
+        <div className='flex items-center text-2xl'>
           <CustomToolTip id='settings' content='Settings'><button className='p-1.5 rounded-full transition-colors dark:hover:bg-d-hoverbg hover:bg-l-hoverbg'><IoSettingsOutline /></button></CustomToolTip>
           <CustomToolTip id='mkgroup' content='Create group'><button className='p-1.5 rounded-full transition-colors dark:hover:bg-d-hoverbg hover:bg-l-hoverbg'><AiOutlineUsergroupAdd /></button></CustomToolTip>
         </div>

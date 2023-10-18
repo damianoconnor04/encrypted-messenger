@@ -51,6 +51,8 @@ const config: Config = {
         'l-hoverbg2': '#3232321a',
         'd-hoverbg': '#ffffff33',
         'd-hoverbg2': '#ffffff1a',
+        'l-softbg': '#1a1a1a0a',
+        'd-softbg': '#ffffff0b',
 
         'l-panelbg': '#f0f0f0',
         'd-panelbg': '#1a1a1a',

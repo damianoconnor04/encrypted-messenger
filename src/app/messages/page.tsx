@@ -18,27 +18,27 @@ const Messages = () => {
   return (
     <>
       <div className='w-full xl:block hidden'>
-        <PanelGroup direction='horizontal'>
-          <Panel defaultSize={22} minSize={18} maxSize={22}>
+        <PanelGroup autoSaveId="conditional" direction='horizontal'>
+          <Panel id="left" defaultSize={22} minSize={18} maxSize={22}>
             <MessagePanel />
           </Panel>
-          <PanelResizeHandle className='w-1.5 dark:bg-d-panelbg bg-l-panelbg dark:border-d-border border-l-border border-r cursor-e-resize transition-colors hover:!border-sky-400/50' />
-          {name && message && time ? 
+          <PanelResizeHandle className='w-1 dark:bg-d-panelbg bg-l-panelbg dark:border-d-border border-l-border border-r cursor-e-resize transition-colors hover:!border-sky-400/50' />
+          {name && message && time ?
             <>
-              <Panel defaultSize={63} minSize={50}>
+              <Panel id="middle" defaultSize={63} minSize={50}>
                 <Conversation name={name} message={message} time={time} setPanelOpen={setPanelOpen} panelOpen={panelOpen} />
               </Panel>
 
               {panelOpen &&
-              <>
-                <PanelResizeHandle className='w-3 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />
-                <Panel maxSize={20} defaultSize={14} minSize={14}>
-                  <ConvPanel name={name} time={time} setPanelOpen={setPanelOpen} />
-                </Panel>
-              </>
+                <>
+                  <PanelResizeHandle className='w-3 dark:border-d-border border-l-border border-l dark:bg-d-panelbg bg-l-panelbg cursor-e-resize transition-colors hover:!border-sky-400/50' />
+                  <Panel id="right" maxSize={20} defaultSize={15} minSize={15}>
+                    <ConvPanel name={name} time={time} setPanelOpen={setPanelOpen} />
+                  </Panel>
+                </>
               }
             </>
-            : <Panel defaultSize={75}>
+            : <Panel id="right" defaultSize={78}>
               <div className='hidden xl:block w-full h-full'><EmptyState /></div>
             </Panel>
           }
